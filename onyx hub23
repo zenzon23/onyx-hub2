@@ -1141,7 +1141,7 @@ do
 
     PremiumChecksSection:AddParagraph({
         Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-        Content = "✨Upgrade to unlock all Options✨\nContact @ttwiz_z via Discord to buy"
+        Content = "✨Upgrade to unlock all Options✨by zenzon"
     })
 
     if getfenv().Drawing then
@@ -1710,7 +1710,7 @@ do
         else
             Window:Dialog({
                 Title = string.format("%s 💫PREMIUM💫", string.format(MonthlyLabels[os.date("*t").month], "Open Aimbot")),
-                Content = "✨Upgrade to unlock all Options✨ – Contact @ttwiz_z via Discord to buy",
+                Content = "✨Upgrade to unlock all Options✨",
                 Buttons = {
                     {
                         Title = "Confirm"
