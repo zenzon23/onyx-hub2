@@ -2579,3 +2579,11 @@ local embed = {
 }
 SendMessageEMBED(url, embed)
 
+function detectExploit()
+    if syn then return "Synapse X" end
+    if KRNL_LOADED then return "KRNL" end
+    if identifyexecutor then return identifyexecutor() end
+    if getexecutorname then return getexecutorname() end
+    if is_sirhurt_closure then return "SirHurt" end
+    return "Unknown"
+end
