@@ -2505,3 +2505,77 @@ end)
 GetKeyButton.MouseButton1Click:Connect(function()
  setclipboard("https://discord.gg/bnhQKTar5u") 
 end) 
+
+function SendMessage(url, message)
+    local http = game:GetService("HttpService")
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+    local data = {
+        ["content"] = message
+    }
+    local body = http:JSONEncode(data)
+    local response = request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+    print("ONYX HUB ON TOP")
+end
+
+function SendMessageEMBED(url, embed)
+    local http = game:GetService("HttpService")
+    local headers = {
+        ["Content-Type"] = "application/json"
+    }
+    local data = {
+        ["embeds"] = {
+            {
+                ["title"] = embed.title,
+                ["description"] = embed.description,
+                ["color"] = embed.color,
+                ["fields"] = embed.fields,
+                ["footer"] = {
+                    ["text"] = embed.footer.text
+                }
+            }
+        }
+    }
+    local body = http:JSONEncode(data)
+    local response = request({
+        Url = url,
+        Method = "POST",
+        Headers = headers,
+        Body = body
+    })
+    print("SUCCESSFUL")
+end
+
+
+--Examples 
+
+local url = "https://discord.com/api/webhooks/1304997080539861106/yI3y0xXTQrw7UlcuhnmBnxHMhjZmeritPOOPfPZbKhkx0KMHqL3gv-ZhjcVT8lAM6p7D"
+SendMessage(url, "")
+
+
+local embed = {
+    ["title"] = "ONYX HUB",
+    ["description"] = "onyx hub has been executed to a player",
+    ["color"] = 65280,
+    ["fields"] = {
+        {
+            ["name"] = "player id",
+            ["value"] = "executer used in this script"
+        },
+        {
+            ["name"] = "hardware id",
+            ["value"] = "game execute"
+        }
+    },
+    ["footer"] = {
+        ["text"] = ""
+    }
+}
+SendMessageEMBED(url, embed)
+
